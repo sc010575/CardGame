@@ -9,11 +9,17 @@
 import UIKit
 
 class GameViewController: UIViewController {
- 
-    var viewModel:GameViewModelUseCase!
     
+    @IBOutlet weak var higherButton: UIButton!
+    @IBOutlet weak var lowerButton: UIButton!
+    @IBOutlet weak var cardView: CardView!
+
+    var viewModel:GameViewModelUseCase!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel.title()
+        guard let cardToShow = viewModel.showCurrentChoice() else { return }
+        cardView.currentCardToShow(cardToShow)
     }
 }

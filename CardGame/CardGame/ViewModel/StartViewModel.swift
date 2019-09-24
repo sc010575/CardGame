@@ -19,20 +19,22 @@ final class StartViewModel:StartViewModelUseCase {
     
     weak var delegate:CardShowCaseCoordinatorDelegate?
     private let cardsRetriever:CardsRetrieverUseCase
+    private let gameHandler = CardGameHandler.shared
     
     init(_ cardsRetriever:CardsRetrieverUseCase = CardsRetriever()) {
         self.cardsRetriever = cardsRetriever
     }
     
     func title() -> String {
-        return "Card Higher or Lower"
+        return "Card Higher or Lower game"
     }
     
     func fetchCards() {
-        cardsRetriever.fetchCakeDetails (completion: { (result) in
+        cardsRetriever.fetchCakeDetails ( completion: { [weak self]  (result) in
             switch result {
             case .success(let cards):
-                print(cards)
+                guard let cards = cards else { return }
+                self?.gameHandler.populateCards(cards)
             case .failure(let error):
                 print(error)
             }

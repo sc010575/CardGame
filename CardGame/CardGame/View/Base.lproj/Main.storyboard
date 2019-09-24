@@ -13,7 +13,6 @@
         <!--Start View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="StartViewController" id="BYZ-38-t0r" customClass="StartViewController" customModule="CardGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -55,6 +54,7 @@
                         <outlet property="gameStartButton" destination="akC-bJ-ALk" id="y5Y-O9-cWZ"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-146" y="29"/>
         </scene>
@@ -65,9 +65,74 @@
                     <view key="view" contentMode="scaleToFill" id="cqm-cE-Esa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oMx-KW-11x" customClass="CardView" customModule="CardGame" customModuleProvider="target">
+                                <rect key="frame" x="30" y="84" width="354" height="460"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCC-pU-HES">
+                                        <rect key="frame" x="142" y="195" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="4X0-z0-KMl"/>
+                                            <constraint firstAttribute="width" constant="70" id="mOH-kL-AdJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spades" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dd-aw-A8Y">
+                                        <rect key="frame" x="20" y="419.5" width="314" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.89745592949999997" green="0.34934377719999998" blue="0.33401455880000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="6dd-aw-A8Y" secondAttribute="bottom" constant="20" id="Krb-1N-hp1"/>
+                                    <constraint firstItem="6dd-aw-A8Y" firstAttribute="leading" secondItem="oMx-KW-11x" secondAttribute="leading" constant="20" id="XWp-3e-AIB"/>
+                                    <constraint firstAttribute="trailing" secondItem="6dd-aw-A8Y" secondAttribute="trailing" constant="20" id="iJg-YE-dya"/>
+                                    <constraint firstItem="NCC-pU-HES" firstAttribute="centerX" secondItem="oMx-KW-11x" secondAttribute="centerX" id="ts8-n8-Ulv"/>
+                                    <constraint firstItem="NCC-pU-HES" firstAttribute="centerY" secondItem="oMx-KW-11x" secondAttribute="centerY" id="uON-i7-XyU"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="suitLabel" destination="6dd-aw-A8Y" id="Gtz-13-89x"/>
+                                    <outlet property="valueLabel" destination="NCC-pU-HES" id="lKW-bW-QPY"/>
+                                </connections>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="2a1-GR-zmT">
+                                <rect key="frame" x="20" y="584" width="374" height="110"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRx-rI-2rW">
+                                        <rect key="frame" x="0.0" y="0.0" width="187" height="110"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Higher"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2a-vJ-WNb">
+                                        <rect key="frame" x="187" y="0.0" width="187" height="110"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Lower"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2a1-GR-zmT" firstAttribute="leading" secondItem="Fuj-H1-gKu" secondAttribute="leading" constant="20" id="2bU-pI-CeR"/>
+                            <constraint firstItem="oMx-KW-11x" firstAttribute="top" secondItem="Fuj-H1-gKu" secondAttribute="top" constant="40" id="FPc-TJ-ZCX"/>
+                            <constraint firstItem="oMx-KW-11x" firstAttribute="leading" secondItem="Fuj-H1-gKu" secondAttribute="leading" constant="30" id="KeD-iC-Drb"/>
+                            <constraint firstItem="Fuj-H1-gKu" firstAttribute="bottom" secondItem="2a1-GR-zmT" secondAttribute="bottom" constant="168" id="cOn-gU-foA"/>
+                            <constraint firstItem="2a1-GR-zmT" firstAttribute="top" secondItem="oMx-KW-11x" secondAttribute="bottom" constant="40" id="dBf-xE-u5d"/>
+                            <constraint firstItem="Fuj-H1-gKu" firstAttribute="trailing" secondItem="oMx-KW-11x" secondAttribute="trailing" constant="30" id="ibD-Vn-GB7"/>
+                            <constraint firstItem="Fuj-H1-gKu" firstAttribute="trailing" secondItem="2a1-GR-zmT" secondAttribute="trailing" constant="20" id="qEw-g4-O3G"/>
+                            <constraint firstItem="2a1-GR-zmT" firstAttribute="top" secondItem="cqm-cE-Esa" secondAttribute="top" constant="584" id="vAH-Q0-VcC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Fuj-H1-gKu"/>
                     </view>
+                    <connections>
+                        <outlet property="cardView" destination="oMx-KW-11x" id="cda-mc-hSb"/>
+                        <outlet property="higherButton" destination="dRx-rI-2rW" id="VlE-O6-jN3"/>
+                        <outlet property="lowerButton" destination="N2a-vJ-WNb" id="o0V-Gz-Nml"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VJ2-LT-lIT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
