@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		C537D70B233ABF8800A8FBCD /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C537D70A233ABF8800A8FBCD /* Observer.swift */; };
 		C537D70D233AC35800A8FBCD /* CardGameHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C537D70C233AC35800A8FBCD /* CardGameHandler.swift */; };
+		C537D70F233AFE0A00A8FBCD /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C537D70E233AFE0A00A8FBCD /* ResultViewController.swift */; };
+		C537D711233B012000A8FBCD /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C537D710233B012000A8FBCD /* ResultViewModel.swift */; };
+		C537D713233B1B1400A8FBCD /* LifeLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C537D712233B1B1400A8FBCD /* LifeLineView.swift */; };
 		C54B5BE1233A93C30091AF93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54B5BE0233A93C30091AF93 /* AppDelegate.swift */; };
 		C54B5BE3233A93C30091AF93 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54B5BE2233A93C30091AF93 /* StartViewController.swift */; };
 		C54B5BE6233A93C30091AF93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C54B5BE4233A93C30091AF93 /* Main.storyboard */; };
@@ -40,6 +43,9 @@
 /* Begin PBXFileReference section */
 		C537D70A233ABF8800A8FBCD /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		C537D70C233AC35800A8FBCD /* CardGameHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameHandler.swift; sourceTree = "<group>"; };
+		C537D70E233AFE0A00A8FBCD /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		C537D710233B012000A8FBCD /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
+		C537D712233B1B1400A8FBCD /* LifeLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeLineView.swift; sourceTree = "<group>"; };
 		C54B5BDD233A93C30091AF93 /* CardGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C54B5BE0233A93C30091AF93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C54B5BE2233A93C30091AF93 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
@@ -136,9 +142,11 @@
 			isa = PBXGroup;
 			children = (
 				C54B5BE4233A93C30091AF93 /* Main.storyboard */,
+				C54B5C17233AB11A0091AF93 /* CardView.swift */,
+				C537D712233B1B1400A8FBCD /* LifeLineView.swift */,
 				C54B5BE2233A93C30091AF93 /* StartViewController.swift */,
 				C54B5C13233AA2590091AF93 /* GameViewController.swift */,
-				C54B5C17233AB11A0091AF93 /* CardView.swift */,
+				C537D70E233AFE0A00A8FBCD /* ResultViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -156,6 +164,7 @@
 			children = (
 				C54B5C0F233A96040091AF93 /* StartViewModel.swift */,
 				C54B5C15233AA2B70091AF93 /* GameViewModel.swift */,
+				C537D710233B012000A8FBCD /* ResultViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -286,11 +295,14 @@
 				C54B5C14233AA2590091AF93 /* GameViewController.swift in Sources */,
 				C54B5C0C233A94F20091AF93 /* Serialize.swift in Sources */,
 				C54B5C10233A96040091AF93 /* StartViewModel.swift in Sources */,
+				C537D70F233AFE0A00A8FBCD /* ResultViewController.swift in Sources */,
 				C54B5C16233AA2B70091AF93 /* GameViewModel.swift in Sources */,
 				C54B5C0B233A94F20091AF93 /* CardsRetriever.swift in Sources */,
 				C54B5C0E233A952D0091AF93 /* Card.swift in Sources */,
 				C54B5BE3233A93C30091AF93 /* StartViewController.swift in Sources */,
+				C537D713233B1B1400A8FBCD /* LifeLineView.swift in Sources */,
 				C54B5BE1233A93C30091AF93 /* AppDelegate.swift in Sources */,
+				C537D711233B012000A8FBCD /* ResultViewModel.swift in Sources */,
 				C54B5C12233A99300091AF93 /* CardShowCaseCoordinator.swift in Sources */,
 				C54B5C0A233A94F20091AF93 /* Network.swift in Sources */,
 				C54B5C18233AB11A0091AF93 /* CardView.swift in Sources */,

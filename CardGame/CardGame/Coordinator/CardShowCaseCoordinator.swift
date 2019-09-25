@@ -11,7 +11,9 @@ import UIKit
 
 protocol CardShowCaseCoordinatorDelegate: class
 {
-    func startViewModelDidSelectStartNewGame(_ viewModel: StartViewModel)
+    func shouldStartNewGame()
+    func gameOverShouldShouldShowResult()
+    
 }
 
 class CardShowCaseCoordinator: Coordinator {
@@ -37,14 +39,30 @@ class CardShowCaseCoordinator: Coordinator {
 
 extension CardShowCaseCoordinator: CardShowCaseCoordinatorDelegate {
     
-    func startViewModelDidSelectStartNewGame(_ viewModel: StartViewModel) {
+    func shouldStartNewGame() {
+        startNewGame()
+    }
+
+    func gameOverShouldShouldShowResult() {
+    
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyBoard.instantiateViewController(withIdentifier: String(describing: ResultViewController.self)) as? ResultViewController else { return }
         
+        var viewModel:ResultViewModelUseCase = ResultViewModel()
+        viewModel.delegate = self
+        vc.viewModel = viewModel
+        presenter.pushViewController(vc, animated: true)
+
+    }
+    
+    fileprivate func startNewGame(){
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = storyBoard.instantiateViewController(withIdentifier: String(describing: GameViewController.self)) as? GameViewController else { return }
         
         var viewModel:GameViewModelUseCase = GameViewModel()
+        viewModel.delegate = self
         vc.viewModel = viewModel
         presenter.pushViewController(vc, animated: true)
-    }
 
+    }
 }

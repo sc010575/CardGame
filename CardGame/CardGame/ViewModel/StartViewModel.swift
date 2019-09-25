@@ -42,6 +42,6 @@ final class StartViewModel:StartViewModelUseCase {
     }
     
     func onTapStart() {
-        delegate?.startViewModelDidSelectStartNewGame(self)
+        delegate?.shouldStartNewGame()
     }
 }
