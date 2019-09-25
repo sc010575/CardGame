@@ -21,9 +21,6 @@ Cards shuffle higher or lower game
 - The application is build with MVVM-C (Model-View-ViewModel and Coordinator) architecture. Use of coordinator pattern for navigation. Therefore viewcontrollers are free from navigation. 
 - I used Protocols for each ViewModels so that can be easily Mocked for testing.
 
-### Code Coverage
-- Current code coverage is 84.2%
-
 ### Features
 - After launching the application it will make an api call to retrieve cards.
 - Tap the start button will show a game view with the shuffled card, First one at the beginning.
