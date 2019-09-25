@@ -82,13 +82,13 @@
                                             <constraint firstAttribute="height" constant="70" id="4X0-z0-KMl"/>
                                             <constraint firstAttribute="width" constant="70" id="mOH-kL-AdJ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="56"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spades" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dd-aw-A8Y">
-                                        <rect key="frame" x="20" y="487.5" width="314" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="20" y="481.5" width="314" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
