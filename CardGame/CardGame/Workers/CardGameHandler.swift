@@ -94,6 +94,11 @@ fileprivate extension CardGameHandler {
     func progress() {
         guard let currentCard = shuffledCards.first else { return }
         let nextCard = shuffledCards[1]
+        
+        if nextCard.rank.rawValue == currentCard.rank.rawValue {
+            return
+        }
+        
         if nextCard.rank.rawValue > currentCard.rank.rawValue {
             progressInHigherOrder = true
         } else {

@@ -39,7 +39,7 @@ final class GameViewModel: GameViewModelUseCase {
 
     func handleHighOrLow(_ input: Bool) {
         if gameHandler.matchOrder(input) || gameHandler.lifeLineCheck() > 0 {
-            state.value == GameState.lifeLineReduce ? GameState.lifeLineReduce : GameState.cotinue
+            state.value = (state.value == .lifeLineReduce) ? .lifeLineReduce : .cotinue
         } else {
             state.value = .stop
         }

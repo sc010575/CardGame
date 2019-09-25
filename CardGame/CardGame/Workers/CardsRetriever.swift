@@ -29,14 +29,13 @@ class CardsRetriever : CardsRetrieverUseCase {
         network.send(request) { result in
             switch result {
             case .success(let data):
-                if let cards:ResultType = JsonSerialize.parseJson(data) {
+                let cards:ResultType = JsonSerialize.parseJson(data)
                     switch cards {
                     case .success(let cards):
                         completion(.success(cards ?? []))
                     case .failure(let jsonError):
                         completion(.failure(jsonError))
                     }
-                }
             case .failure(let error):
                 completion(.failure(error))
             }
