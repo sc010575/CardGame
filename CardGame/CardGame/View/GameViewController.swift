@@ -14,6 +14,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var lowerButton: UIButton!
     @IBOutlet weak var cardView: CardView!
     
+    @IBOutlet weak var lifeLineView: LifeLineView!
     var viewModel: GameViewModelUseCase!
 
     override func viewDidLoad() {
@@ -24,8 +25,14 @@ class GameViewController: UIViewController {
         viewModel.gameStart()
         setupCardView()
         viewModel.state.bind { gameState in
-            if gameState == .stop {
-                self.viewModel.gameOver()
+            
+            switch gameState {
+            case .stop:
+                  self.viewModel.gameOver()
+            case .lifeLineReduce:
+                  self.updateLifelineView()
+            default:
+                break
             }
         }
     }
@@ -42,6 +49,11 @@ class GameViewController: UIViewController {
 
     fileprivate func setupCardView() {
        guard let cardToShow = viewModel.showCurrentChoice() else { return }
-        cardView.currentCardToShow(cardToShow)
+       cardView.currentCardToShow(cardToShow)
+    }
+    
+    fileprivate func updateLifelineView() {
+        let currentLifeLines = viewModel.currentLifeLines()
+        lifeLineView.updateLifeLine(currentLifeLines)
     }
 }

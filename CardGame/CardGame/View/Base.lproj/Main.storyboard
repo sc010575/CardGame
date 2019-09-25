@@ -127,12 +127,59 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9G-sm-e3J" customClass="LifeLineView" customModule="CardGame" customModuleProvider="target">
+                                <rect key="frame" x="20" y="754" width="374" height="80"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WBs-MR-XzU">
+                                        <rect key="frame" x="89" y="10" width="60" height="60"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="otx-st-bZI"/>
+                                            <constraint firstAttribute="width" constant="60" id="tyg-iP-65f"/>
+                                        </constraints>
+                                    </view>
+                                    <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kwb-fm-dte">
+                                        <rect key="frame" x="157" y="10" width="60" height="60"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="65h-U3-9t7"/>
+                                            <constraint firstAttribute="height" constant="60" id="ebu-4s-sOV"/>
+                                        </constraints>
+                                    </view>
+                                    <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Mj-yL-G6U">
+                                        <rect key="frame" x="225" y="10" width="60" height="60"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="Nqa-4A-V2M"/>
+                                            <constraint firstAttribute="height" constant="60" id="ONe-0u-mKZ"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="8Mj-yL-G6U" firstAttribute="leading" secondItem="kwb-fm-dte" secondAttribute="leading" constant="68" id="5hX-Of-hbb"/>
+                                    <constraint firstItem="8Mj-yL-G6U" firstAttribute="leading" secondItem="WBs-MR-XzU" secondAttribute="leading" constant="136" id="9Kc-AC-gZH"/>
+                                    <constraint firstAttribute="height" constant="80" id="OiX-Zp-61L"/>
+                                    <constraint firstItem="8Mj-yL-G6U" firstAttribute="top" secondItem="kwb-fm-dte" secondAttribute="top" id="crf-xe-GUl"/>
+                                    <constraint firstItem="8Mj-yL-G6U" firstAttribute="centerY" secondItem="f9G-sm-e3J" secondAttribute="centerY" id="fFD-hP-b84"/>
+                                    <constraint firstItem="8Mj-yL-G6U" firstAttribute="centerX" secondItem="f9G-sm-e3J" secondAttribute="centerX" constant="68" id="nKX-xb-yu9"/>
+                                    <constraint firstItem="8Mj-yL-G6U" firstAttribute="top" secondItem="WBs-MR-XzU" secondAttribute="top" id="nXP-4u-ncS"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="lifeLineViews" destination="kwb-fm-dte" collectionClass="NSMutableArray" id="c6s-W1-y19"/>
+                                    <outletCollection property="lifeLineViews" destination="WBs-MR-XzU" collectionClass="NSMutableArray" id="hBu-1W-e9I"/>
+                                    <outletCollection property="lifeLineViews" destination="8Mj-yL-G6U" collectionClass="NSMutableArray" id="EZd-jo-crm"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2a1-GR-zmT" firstAttribute="leading" secondItem="Fuj-H1-gKu" secondAttribute="leading" constant="20" id="2bU-pI-CeR"/>
                             <constraint firstItem="oMx-KW-11x" firstAttribute="top" secondItem="Fuj-H1-gKu" secondAttribute="top" constant="40" id="FPc-TJ-ZCX"/>
+                            <constraint firstItem="f9G-sm-e3J" firstAttribute="top" secondItem="2a1-GR-zmT" secondAttribute="bottom" constant="60" id="I0t-tk-BFe"/>
                             <constraint firstItem="oMx-KW-11x" firstAttribute="leading" secondItem="Fuj-H1-gKu" secondAttribute="leading" constant="30" id="KeD-iC-Drb"/>
+                            <constraint firstItem="f9G-sm-e3J" firstAttribute="leading" secondItem="Fuj-H1-gKu" secondAttribute="leading" constant="20" id="MPT-mb-8kV"/>
+                            <constraint firstItem="Fuj-H1-gKu" firstAttribute="trailing" secondItem="f9G-sm-e3J" secondAttribute="trailing" constant="20" id="Xhb-bY-0YS"/>
                             <constraint firstItem="Fuj-H1-gKu" firstAttribute="bottom" secondItem="2a1-GR-zmT" secondAttribute="bottom" constant="168" id="cOn-gU-foA"/>
                             <constraint firstItem="2a1-GR-zmT" firstAttribute="top" secondItem="oMx-KW-11x" secondAttribute="bottom" constant="40" id="dBf-xE-u5d"/>
                             <constraint firstItem="Fuj-H1-gKu" firstAttribute="trailing" secondItem="oMx-KW-11x" secondAttribute="trailing" constant="30" id="ibD-Vn-GB7"/>
@@ -143,6 +190,7 @@
                     <connections>
                         <outlet property="cardView" destination="oMx-KW-11x" id="cda-mc-hSb"/>
                         <outlet property="higherButton" destination="dRx-rI-2rW" id="VlE-O6-jN3"/>
+                        <outlet property="lifeLineView" destination="f9G-sm-e3J" id="7rd-KJ-pp0"/>
                         <outlet property="lowerButton" destination="N2a-vJ-WNb" id="o0V-Gz-Nml"/>
                     </connections>
                 </viewController>

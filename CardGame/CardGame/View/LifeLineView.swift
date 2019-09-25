@@ -10,30 +10,28 @@ import UIKit
 
 class LifeLineView: UIView {
 
-    @IBOutlet weak var lifeLine1View: UIView!{
-        didSet{
-            createCircle(view: lifeLine1View)
-        }
-    }
-    @IBOutlet weak var lifeLine2View: UIView!{
-        didSet{
-            createCircle(view: lifeLine2View)
-        }
-    }
-    @IBOutlet weak var lifeLine3View: UIView!{
-        didSet{
-            createCircle(view: lifeLine3View)
+    @IBOutlet var lifeLineViews: [UIView]! {
+        didSet {
+            lifeLineViews.forEach { createCircle(view: $0)
+            }
         }
     }
 
-    fileprivate func createCircle(view:UIView) {
-        view.layer.cornerRadius = view.bounds.size.width/2
+    fileprivate func createCircle(view: UIView) {
+        view.layer.cornerRadius = view.bounds.size.width / 2
         view.layer.masksToBounds = true
         view.backgroundColor = .darkGray
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
+    func updateLifeLine(_ num: Int) {
+        lifeLineViews.forEach {
+            if $0.tag == num {
+                $0.backgroundColor = .red
+            }
+        }
+    }
 }

@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol CardGameHandlerListener: class {
+    func lifeLineStatusDidChanged()
+}
+
 class CardGameHandler {
 
     static let shared = CardGameHandler()
@@ -16,6 +20,10 @@ class CardGameHandler {
     private var progressInHigherOrder = false
     private var successCounter = 0
     private var currentLifeLine = 0
+
+    var listeners = [CardGameHandlerListener]()
+
+
     private init() { }
 
     func populateCards(_ newCards: [Card]) {
@@ -33,30 +41,41 @@ class CardGameHandler {
         let result = progressInHigherOrder == input ? true : false
         if result {
             successCounter += 1
-        }else {
+        } else {
             currentLifeLine -= 1
+            notifyListner()
+
         }
-        print(result,successCounter,currentLifeLine)
+    //    print(result, successCounter, currentLifeLine)
         return result
     }
-    
+
     func getSuccessCounter() -> Int {
         return successCounter
     }
-    
+
     func lifeLineCheck() -> Int {
         return currentLifeLine
     }
-    
+
     func resetHandler() {
         successCounter = 0
         currentLifeLine = 0
         shuffledCards.removeAll()
     }
-    
+
     func shuffleCards() {
         shuffle()
     }
+
+    func addListener(listener: CardGameHandlerListener) {
+        listeners.append(listener)
+    }
+
+    func removeListener(listener: CardGameHandlerListener) {
+        listeners = listeners.filter { $0 !== listener }
+    }
+
 }
 
 fileprivate extension CardGameHandler {
@@ -81,5 +100,10 @@ fileprivate extension CardGameHandler {
             progressInHigherOrder = false
         }
     }
-
+    
+    func notifyListner() {
+        self.listeners.forEach {
+            $0.lifeLineStatusDidChanged()
+        }
+    }
 }
