@@ -30,7 +30,7 @@ final class StartViewModel:StartViewModelUseCase {
     }
     
     func fetchCards() {
-        cardsRetriever.fetchCakeDetails ( completion: { [weak self]  (result) in
+        cardsRetriever.fetchCardDetails ( completion: { [weak self]  (result) in
             switch result {
             case .success(let cards):
                 guard let cards = cards else { return }

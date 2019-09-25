@@ -1,6 +1,6 @@
 //
-//  CakeService.swift
-//  CakeShowCase
+//  CardsRetriever.swift
+//  CardGame
 //
 //  Created by Suman Chatterjee on 24/09/2019.
 //  Copyright © 2019 Suman Chatterjee. All rights reserved.
@@ -10,7 +10,7 @@ import Foundation
 
 protocol CardsRetrieverUseCase {
     typealias ResultType = Result<[Card]?,AppError>
-    func fetchCakeDetails(completion: @escaping (ResultType) -> ())
+    func fetchCardDetails(completion: @escaping (ResultType) -> ())
 }
 
 class CardsRetriever : CardsRetrieverUseCase {
@@ -20,7 +20,7 @@ class CardsRetriever : CardsRetrieverUseCase {
         self.network = network
     }
     
-    func fetchCakeDetails(completion: @escaping (ResultType) -> ()) {
+    func fetchCardDetails(completion: @escaping (ResultType) -> ()) {
         
         guard let baseUrl = URL(string: Constant.baseUrl) else { return completion(.failure(.dataError(errorMessage: "Url is wrong"))) }
         
@@ -29,8 +29,8 @@ class CardsRetriever : CardsRetrieverUseCase {
         network.send(request) { result in
             switch result {
             case .success(let data):
-                if let cakeList:ResultType = JsonSerialize.parseJson(data) {
-                    switch cakeList {
+                if let cards:ResultType = JsonSerialize.parseJson(data) {
+                    switch cards {
                     case .success(let cards):
                         completion(.success(cards ?? []))
                     case .failure(let jsonError):
