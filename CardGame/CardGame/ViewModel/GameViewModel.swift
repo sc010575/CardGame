@@ -8,13 +8,18 @@
 
 import Foundation
 
+protocol GameViewModelCoordinatorDelegate: class
+{
+    func gameViewModelDidFinishGame(viewModel: GameViewModel)
+}
+
 enum GameState {
     case notStarted, cotinue, lifeLineReduce, stop
 }
 
 protocol GameViewModelUseCase {
     var state: Observer<GameState> { get set }
-    var delegate: CardShowCaseCoordinatorDelegate? { get set }
+    var coordinatorDelegate: GameViewModelCoordinatorDelegate? { get set }
     func title() -> String
     func showCurrentChoice() -> Card?
     func handleHighOrLow(_ input: Bool)
@@ -26,7 +31,7 @@ protocol GameViewModelUseCase {
 final class GameViewModel: GameViewModelUseCase {
 
     var state: Observer<GameState> = Observer(.notStarted)
-    var delegate: CardShowCaseCoordinatorDelegate?
+    var coordinatorDelegate: GameViewModelCoordinatorDelegate?
     private let gameHandler = CardGameHandler.shared
 
     func title() -> String {
@@ -50,7 +55,7 @@ final class GameViewModel: GameViewModelUseCase {
         gameHandler.addListener(listener: self)
     }
     func gameOver() {
-        delegate?.gameOverShouldShouldShowResult()
+        coordinatorDelegate?.gameViewModelDidFinishGame(viewModel: self)
     }
     
     func currentLifeLines() -> Int {

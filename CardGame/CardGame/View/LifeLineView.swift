@@ -20,7 +20,7 @@ class LifeLineView: UIView {
     fileprivate func createCircle(view: UIView) {
         view.layer.cornerRadius = view.bounds.size.width / 2
         view.layer.masksToBounds = true
-        view.backgroundColor = .darkGray
+        view.backgroundColor = .green
     }
 
     override func awakeFromNib() {

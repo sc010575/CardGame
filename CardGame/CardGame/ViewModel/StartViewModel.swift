@@ -8,8 +8,14 @@
 
 import Foundation
 
+protocol StartViewModelCoordinatorDelegate: class
+{
+    func startViewModelShouldStartNewGame(viewModel: StartViewModel)
+}
+
+
 protocol StartViewModelUseCase {
-    var delegate: CardShowCaseCoordinatorDelegate? { get set}
+    var coordinatorDelegate: StartViewModelCoordinatorDelegate? { get set}
     func title() -> String
     func fetchCards()
     func onTapStart() 
@@ -17,7 +23,7 @@ protocol StartViewModelUseCase {
 
 final class StartViewModel:StartViewModelUseCase {
     
-    weak var delegate:CardShowCaseCoordinatorDelegate?
+    weak var coordinatorDelegate:StartViewModelCoordinatorDelegate?
     private let cardsRetriever:CardsRetrieverUseCase
     private let gameHandler = CardGameHandler.shared
     
@@ -42,6 +48,6 @@ final class StartViewModel:StartViewModelUseCase {
     }
     
     func onTapStart() {
-        delegate?.shouldStartNewGame()
+        coordinatorDelegate?.startViewModelShouldStartNewGame(viewModel:self)
     }
 }

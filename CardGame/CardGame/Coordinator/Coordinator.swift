@@ -7,28 +7,7 @@
 //
 
 import Foundation
-import UIKit
 
 protocol Coordinator {
     func start()
-}
-
-
-class ApplicationCoordinator:Coordinator {
-    
-    private let window: UIWindow
-    private let navigationcontroller:UINavigationController
-    private let cardShowCaseCoordinator: CardShowCaseCoordinator
-    
-    init(_ window:UIWindow) {
-        self.window = window
-        navigationcontroller = UINavigationController()
-        cardShowCaseCoordinator = CardShowCaseCoordinator(navigationcontroller)
-    }
-    
-    func start() {
-        window.rootViewController = navigationcontroller
-        cardShowCaseCoordinator.start()
-        window.makeKeyAndVisible()
-    }
 }

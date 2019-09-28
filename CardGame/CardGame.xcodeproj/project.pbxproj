@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C52EB64923400EA7007F432F /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52EB64823400EA7007F432F /* ApplicationCoordinator.swift */; };
+		C52EB64B23400EF4007F432F /* GameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52EB64A23400EF4007F432F /* GameCoordinator.swift */; };
+		C52EB64D23400F28007F432F /* ResultCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52EB64C23400F28007F432F /* ResultCoordinator.swift */; };
 		C537D70B233ABF8800A8FBCD /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C537D70A233ABF8800A8FBCD /* Observer.swift */; };
 		C537D70D233AC35800A8FBCD /* CardGameHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C537D70C233AC35800A8FBCD /* CardGameHandler.swift */; };
 		C537D70F233AFE0A00A8FBCD /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C537D70E233AFE0A00A8FBCD /* ResultViewController.swift */; };
@@ -26,7 +29,7 @@
 		C54B5C0C233A94F20091AF93 /* Serialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54B5C09233A94F10091AF93 /* Serialize.swift */; };
 		C54B5C0E233A952D0091AF93 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54B5C0D233A952D0091AF93 /* Card.swift */; };
 		C54B5C10233A96040091AF93 /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54B5C0F233A96040091AF93 /* StartViewModel.swift */; };
-		C54B5C12233A99300091AF93 /* CardShowCaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54B5C11233A99300091AF93 /* CardShowCaseCoordinator.swift */; };
+		C54B5C12233A99300091AF93 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54B5C11233A99300091AF93 /* HomeCoordinator.swift */; };
 		C54B5C14233AA2590091AF93 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54B5C13233AA2590091AF93 /* GameViewController.swift */; };
 		C54B5C16233AA2B70091AF93 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54B5C15233AA2B70091AF93 /* GameViewModel.swift */; };
 		C54B5C18233AB11A0091AF93 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54B5C17233AB11A0091AF93 /* CardView.swift */; };
@@ -43,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C52EB64823400EA7007F432F /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		C52EB64A23400EF4007F432F /* GameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinator.swift; sourceTree = "<group>"; };
+		C52EB64C23400F28007F432F /* ResultCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCoordinator.swift; sourceTree = "<group>"; };
 		C537D70A233ABF8800A8FBCD /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		C537D70C233AC35800A8FBCD /* CardGameHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameHandler.swift; sourceTree = "<group>"; };
 		C537D70E233AFE0A00A8FBCD /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
@@ -66,7 +72,7 @@
 		C54B5C09233A94F10091AF93 /* Serialize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serialize.swift; sourceTree = "<group>"; };
 		C54B5C0D233A952D0091AF93 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		C54B5C0F233A96040091AF93 /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
-		C54B5C11233A99300091AF93 /* CardShowCaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardShowCaseCoordinator.swift; sourceTree = "<group>"; };
+		C54B5C11233A99300091AF93 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		C54B5C13233AA2590091AF93 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		C54B5C15233AA2B70091AF93 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		C54B5C17233AB11A0091AF93 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -198,7 +204,10 @@
 			isa = PBXGroup;
 			children = (
 				C54B5C05233A94E40091AF93 /* Coordinator.swift */,
-				C54B5C11233A99300091AF93 /* CardShowCaseCoordinator.swift */,
+				C54B5C11233A99300091AF93 /* HomeCoordinator.swift */,
+				C52EB64823400EA7007F432F /* ApplicationCoordinator.swift */,
+				C52EB64A23400EF4007F432F /* GameCoordinator.swift */,
+				C52EB64C23400F28007F432F /* ResultCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -306,10 +315,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C537D70D233AC35800A8FBCD /* CardGameHandler.swift in Sources */,
+				C52EB64D23400F28007F432F /* ResultCoordinator.swift in Sources */,
+				C52EB64B23400EF4007F432F /* GameCoordinator.swift in Sources */,
 				C537D70B233ABF8800A8FBCD /* Observer.swift in Sources */,
 				C54B5C14233AA2590091AF93 /* GameViewController.swift in Sources */,
 				C54B5C0C233A94F20091AF93 /* Serialize.swift in Sources */,
 				C54B5C10233A96040091AF93 /* StartViewModel.swift in Sources */,
+				C52EB64923400EA7007F432F /* ApplicationCoordinator.swift in Sources */,
 				C537D70F233AFE0A00A8FBCD /* ResultViewController.swift in Sources */,
 				C54B5C16233AA2B70091AF93 /* GameViewModel.swift in Sources */,
 				C54B5C0B233A94F20091AF93 /* CardsRetriever.swift in Sources */,
@@ -318,7 +330,7 @@
 				C537D713233B1B1400A8FBCD /* LifeLineView.swift in Sources */,
 				C54B5BE1233A93C30091AF93 /* AppDelegate.swift in Sources */,
 				C537D711233B012000A8FBCD /* ResultViewModel.swift in Sources */,
-				C54B5C12233A99300091AF93 /* CardShowCaseCoordinator.swift in Sources */,
+				C54B5C12233A99300091AF93 /* HomeCoordinator.swift in Sources */,
 				C54B5C0A233A94F20091AF93 /* Network.swift in Sources */,
 				C54B5C18233AB11A0091AF93 /* CardView.swift in Sources */,
 				C54B5C06233A94E40091AF93 /* Coordinator.swift in Sources */,

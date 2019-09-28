@@ -8,14 +8,20 @@
 
 import Foundation
 
+protocol ResultViewModelCoordinatorDelegate: class
+{
+    func resultViewModelShouldStartNewGame(viewModel: ResultViewModel)
+}
+
+
 protocol ResultViewModelUseCase {
-    var delegate: CardShowCaseCoordinatorDelegate? { get set}
+    var coordinatorDelegate: ResultViewModelCoordinatorDelegate? { get set}
     func showResult() -> String
     func onTapStart()
 }
 
 final class ResultViewModel: ResultViewModelUseCase {
-    var delegate: CardShowCaseCoordinatorDelegate?
+    var coordinatorDelegate: ResultViewModelCoordinatorDelegate?
     private let gameHandler = CardGameHandler.shared
     
     func showResult() -> String {
@@ -25,6 +31,6 @@ final class ResultViewModel: ResultViewModelUseCase {
     
     func onTapStart() {
         gameHandler.resetHandler()
-        delegate?.shouldStartNewGame()
+        coordinatorDelegate?.resultViewModelShouldStartNewGame(viewModel:self)
     }
 }
