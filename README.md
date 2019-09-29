@@ -9,6 +9,10 @@ Cards shuffle higher or lower game
 - Once all the lifeline will be used app will show the result view with the successful guess.
 - User can start the game once again.
 
+### ScreenShots 
+![CardGame1](https://user-images.githubusercontent.com/1453658/65836628-7f268900-e2e9-11e9-818b-b2e017d8e2f2.png)
+![CardGame2](https://user-images.githubusercontent.com/1453658/65836632-82217980-e2e9-11e9-9767-ac502a99a844.png)
+![CardGame3](https://user-images.githubusercontent.com/1453658/65836640-851c6a00-e2e9-11e9-8f02-10df9fdae2e4.png)
 
 ### Api Links
 - https://cards.davidneal.io/api/cards
