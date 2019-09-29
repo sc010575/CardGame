@@ -13,26 +13,36 @@ protocol StartViewModelCoordinatorDelegate: class
     func startViewModelShouldStartNewGame(viewModel: StartViewModel)
 }
 
-
-protocol StartViewModelUseCase {
-    var coordinatorDelegate: StartViewModelCoordinatorDelegate? { get set}
-    func title() -> String
-    func fetchCards()
-    func onTapStart() 
+enum StartViewModelState {
+    case dataNotInitiated, canStartNewGame, fetchDataError
 }
 
-final class StartViewModel:StartViewModelUseCase {
+protocol StartViewModelUseCase  {
+    var coordinatorDelegate: StartViewModelCoordinatorDelegate? { get set}
+    var state: Observer<StartViewModelState> { get set }
+    func fetchCards()
+    func onTapStart()
+    func dataItemToShow() -> ViewModelProtocol?
+}
+
+final class StartViewModel:StartViewModelUseCase{
+    var state: Observer<StartViewModelState> = Observer(.dataNotInitiated)
     
-    weak var coordinatorDelegate:StartViewModelCoordinatorDelegate?
+    struct DataItem: ViewModelProtocol {
+        let title: String
+        let gameTitle: String
+        let description: String
+    }
+
+    private let dataItem:DataItem?
     private let cardsRetriever:CardsRetrieverUseCase
     private let gameHandler = CardGameHandler.shared
-    
-    init(_ cardsRetriever:CardsRetrieverUseCase = CardsRetriever()) {
+ 
+    weak var coordinatorDelegate:StartViewModelCoordinatorDelegate?
+
+    init(dataItem:DataItem, cardsRetriever:CardsRetrieverUseCase = CardsRetriever()) {
         self.cardsRetriever = cardsRetriever
-    }
-    
-    func title() -> String {
-        return "Card Higher or Lower game"
+        self.dataItem = dataItem
     }
     
     func fetchCards() {
@@ -41,13 +51,19 @@ final class StartViewModel:StartViewModelUseCase {
             case .success(let cards):
                 guard let cards = cards else { return }
                 self?.gameHandler.populateCards(cards)
+                self?.state.value = .canStartNewGame
             case .failure(let error):
                 print(error)
+                self?.state.value = .fetchDataError
             }
         })
     }
     
     func onTapStart() {
         coordinatorDelegate?.startViewModelShouldStartNewGame(viewModel:self)
+    }
+    
+    func dataItemToShow() -> ViewModelProtocol? {
+        return dataItem
     }
 }

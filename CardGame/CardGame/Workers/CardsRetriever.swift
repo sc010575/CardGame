@@ -21,7 +21,6 @@ class CardsRetriever : CardsRetrieverUseCase {
     }
     
     func fetchCardDetails(completion: @escaping (ResultType) -> ()) {
-        
         guard let baseUrl = URL(string: Constant.baseUrl) else { return completion(.failure(.dataError(errorMessage: "Url is wrong"))) }
         
         let request: Requestable = Request(baseUrl, type: Constant.type)
